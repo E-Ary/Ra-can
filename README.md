@@ -84,3 +84,63 @@ source venv/bin/activate
 Use the interactive documentation to test the API endpoints.
 
 ## API Endpoints
+
+- GET /
+  - Description: Root endpoint for testing.
+  - Response:
+
+```json
+{
+  "message": "Welcome to the Waste Disposal Assistant API"
+}
+```
+
+- GET /scan/{barcode}
+  - Description: Retrieve product information and waste disposal instructions by barcode.
+  - Parameters:
+    - `barcode` (str): The barcode number of the product.
+  - Response:
+
+```json
+{
+  "barcode": "3029330003533",
+  "product_name": "Nutella",
+  "packaging": "Pot en verre, couvercle en plastique",
+  "packaging_materials": "verre, plastique",
+  "waste_disposal_instructions": "Jetez le couvercle dans la poubelle plastique, le pot dans le verre."
+}
+```
+
+- Error Responses:
+  - 404 Not Found: Product not found.
+
+**Project Structure**
+
+```md
+backend/
+├── app/
+│ ├── main.py
+│ ├── routers/
+│ │ ├── **init**.py
+│ │ └── scan.py
+│ ├── services/
+│ │ ├── **init**.py
+│ │ └── openfoodfacts_service.py
+│ ├── models/
+│ │ ├── **init**.py
+│ │ └── product.py
+│ └── utils/
+│ ├── **init**.py
+│ └── helpers.py
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+**Technologies Used**
+
+- Python 3.13+
+- FastAPI: A modern, fast web framework for building APIs with Python 3.6+ based on standard Python type hints.
+- Uvicorn: A lightning-fast ASGI server implementation, using uvloop and httptools.
+- Requests: A simple HTTP library for Python.
+- Pydantic: Data validation and settings management using Python type annotations.
