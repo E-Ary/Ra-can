@@ -12,8 +12,6 @@ An API built with FastAPI that determines proper waste disposal methods based on
 - [API Endpoints](#api-endpoints)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -103,11 +101,21 @@ Use the interactive documentation to test the API endpoints.
 
 ```json
 {
-  "barcode": "3029330003533",
-  "product_name": "Nutella",
-  "packaging": "Pot en verre, couvercle en plastique",
-  "packaging_materials": "verre, plastique",
-  "waste_disposal_instructions": "Jetez le couvercle dans la poubelle plastique, le pot dans le verre."
+  "barcode": "3155251205296",
+  "product_name": "Tartine Doux",
+  "packaging_details": [
+    {
+      "packaging": "L'opercule métal",
+      "unit_count": 1,
+      "recycling_instructions": "recyclable dans toute la France"
+    },
+    {
+      "packaging": "La barquette et le couvercle",
+      "unit_count": 1,
+      "recycling_instructions": "recyclables selon votre commune"
+    }
+  ],
+  "packaging_image_url": "https://images.openfoodfacts.org/images/products/315/525/120/5296/packaging_fr.176.400.jpg"
 }
 ```
 
